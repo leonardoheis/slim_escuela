@@ -1,0 +1,38 @@
+{% extends 'templates/app.twig' %}
+
+{% set title = 'Signin' %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Sign In</h3>
+          </div>
+          <div class="panel-body">
+              <form action="{{ path_for ('auth.signin') }}" method="post" autocomplete="off">
+                  <div class="form-group{{ errors.username ? ' has-error' : '' }}">
+                    <label for="username">Usuario</label>
+                    <input type="text" class="form-control" id="username"
+                    name="username" value="{{ old.username }}" placeholder="Ingrese nombre usuario">
+                    {% if errors.username %}
+                        <span class="help-block">{{ errors.username | first }}</span>
+                    {% endif %}
+                  </div>
+                  <div class="form-group {{ errors.password ? ' has-error' : '' }}">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Ingrese su password">
+                    {% if errors.password %}
+                        <span class="help-block">{{ errors.password | first }}</span>
+                    {% endif %}
+                  </div>
+                  <button type="submit" class="btn btn-default">Sign In</button>
+                  {{ csrf.field | raw }}
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

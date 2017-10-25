@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block title %}{{pageTitle}} &ndash; Escuela {% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ base_url() }}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">-->
+    <link href="{{ base_url() }}/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="{{ base_url() }}/css/simple-sidebar.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <div class="container-fluid" id="cabecera">
+            <div class="row">
+                <div id="toggle" class="col-md-1">
+                    <a href="#menu-toggle" class="btn btn-danger navbar-btn" id="menu-toggle">
+                        <i class="glyphicon glyphicon-align-justify" style="color:#fff"></i>
+                    </a>
+                </div>
+                <div class="col-md-11">
+                    <h1>Escuela</h1>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        {% include 'templates/navigation.twig' %}
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            {% include 'templates/flash.twig' %}
+            {% block content %}{% endblock %}
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+    <div id="footer" class="footer container">
+
+          {% block footer %}
+            <p>A project from <strong><a href="http://aaa.com">Escuela</a></strong></p>
+            <nav>
+              <a href="index.html" class="selected">About</a>
+              <a href="contact.html">Contact</a>
+            </nav>
+          {% endblock footer %}
+
+    </div>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{ base_url() }}/vendor/jquery/jquery.min.js"></script>
+    <script src="{{ base_url() }}/vendor/popper/popper.min.js"></script>
+    <!--<script src="{{ base_url() }}/vendor/bootstrap/js/bootstrap.min.js"></script>-->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>
